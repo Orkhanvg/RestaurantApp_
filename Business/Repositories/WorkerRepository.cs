@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Business.Repositories
 {
-    class WorkerRepository
+    public class WorkerRepository:IRepository<Worker>
     {
     }
 }

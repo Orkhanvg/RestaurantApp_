@@ -6,6 +6,6 @@ namespace Business.Repositories
 {
    public class ReservationRepository:IRepository<Reservation>
     {
-
+        
     }
 }
