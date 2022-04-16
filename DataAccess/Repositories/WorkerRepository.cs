@@ -1,16 +1,21 @@
-﻿using System;[]
+﻿
+using DataAccess;
+using DataAccess.Interfaces;
+using Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Business.Repositories
+namespace DataAccess.Repositories
 {
-   public class ReservationRepository:IRepository<Reservation>
+    public class WorkerRepository : IRepository<Worker>
     {
-        public bool Create (Reservation entity)
+
+        public bool Create(Worker entity)
         {
             try
             {
-                DataContext.Reservation.Add(entity);
+                DataContext.Workers.Add(entity);
                 return true;
             }
             catch (global::System.Exception)
@@ -21,11 +26,14 @@ namespace Business.Repositories
 
 
         }
-        public bool Delete(Reservation entity)
+
+
+
+        public bool Delete(Worker entity)
         {
             try
             {
-                DataContext.Reservation.Remove(entity);
+                DataContext.Workers.Remove(entity);
                 return true;
             }
             catch (global::System.Exception)
@@ -34,11 +42,16 @@ namespace Business.Repositories
                 throw;
             }
         }
-         public List<Reservation> GetAll(Predicate<Reservation> filter = null)
+
+
+        public List<Worker> GetAll(Predicate<Worker> filter = null)
         {
             try
             {
-                return DataContext.Reservation.FindAll(filter);
+
+
+                return DataContext.Workers.FindAll(filter);
+
 
             }
             catch (global::System.Exception)
@@ -48,11 +61,15 @@ namespace Business.Repositories
             }
         }
 
-        public Reservation GetOne(Predicate<Reservation> filter = null)
+
+
+        public Worker GetOne(Predicate<Worker> filter = null)
         {
             try
             {
-                return DataContext.Reservation.Find(filter);
+                return filter == null ? DataContext.Workers[0] :
+                    DataContext.Workers.Find(filter);
+
             }
             catch (global::System.Exception)
             {
@@ -60,11 +77,14 @@ namespace Business.Repositories
                 throw;
             }
         }
-        public bool Update (Reservation entity)
+
+
+
+        public bool Update(Worker entity)
         {
             try
             {
-                Reservation isExist = GetOne(r => r.Name == entity.Name);
+                Worker isExist = GetOne(r => r.Name == entity.Name);
                 isExist = entity;
                 return true;
             }
