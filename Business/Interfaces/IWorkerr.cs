@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Business.Interfaces
 {
-    public interface IWorker
+    public interface IWorkerr
     {
 
         Worker Create(Worker worker);

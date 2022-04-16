@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Business.Services
+﻿namespace Business.Services
 {
-    public class WorkerService:IWorker
+    public class WorkerService : IWorkerr
 
     {
         public static int Count { get; set; }
@@ -15,14 +11,16 @@ namespace Business.Services
             _workerRepository = workerRepository;
         }
 
-        public Worker Create (Worker worker)
+        public Worker Create(Worker worker)
         {
             group.Id = Count;
 
             _workerRepository.Create(worker);
-
+            Count++;
             return worker;
-
+        }
+        public WorkerService Delete (int Id)
+        {
 
         }
     }
