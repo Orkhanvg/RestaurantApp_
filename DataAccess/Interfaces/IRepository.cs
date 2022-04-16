@@ -15,8 +15,8 @@ namespace DataAccess.Interfaces
 
         bool Update(T entity);
 
-        T GetOne(Predicate<int>filter=null);
-        List<T> GetAll(Predicate<string> filter = null);
+        T GetOne(Predicate<T>filter=null);
+        List<T> GetAll(Predicate<T> filter = null);
 
     }
 }
