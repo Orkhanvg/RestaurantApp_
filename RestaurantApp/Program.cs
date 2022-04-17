@@ -8,11 +8,11 @@ using Utilities.Helper;
 namespace RestaurantApp
 {
     class Program
-    { 
+    {
         static void Main(string[] args)
         {
-      open:      Extention.ShowMe(ConsoleColor.Green, "1-Reservation\n" +
-         "2-Workers");
+            Extention.ShowMe(ConsoleColor.Green, "1-Reservation\n" +
+            "2-Workers");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
             {
@@ -128,18 +128,18 @@ namespace RestaurantApp
                                         Console.WriteLine(item.Name);
                                     }
                                     break;
-                                    goto open;
-                    break;
-            }
 
-            
+
+                            }
 
 
 
 
 
+
+
+                        }
                     }
-                }
             }
 
         }

@@ -11,7 +11,6 @@ namespace Utilities.Helper
         public static void ShowMe(ConsoleColor color , string message)
         {
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("Welcome to our Restaurant");
             Console.ResetColor();
         }
     }
