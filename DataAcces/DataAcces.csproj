@@ -1,16 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <ApplicationIcon />
+    <OutputType>Library</OutputType>
     <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Businesss\Businesss.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
-    <ProjectReference Include="..\Utilities\Utilities.csproj" />
   </ItemGroup>
 
 </Project>
