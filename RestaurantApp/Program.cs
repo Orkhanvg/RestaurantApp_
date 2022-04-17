@@ -32,9 +32,11 @@ namespace RestaurantApp
                             break;
                         case 4:
                             break;
-                        case (int)Extention.Menu.GetAllWorker:
+                        case 5 (int)Extention.Menu.GetAllWorker:
                             workerController.GetAllWorker();
                             break;
+
+
                     }
                 }
             }
