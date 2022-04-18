@@ -14,33 +14,29 @@ namespace RestaurantApp.Controller
         }
         public void CreateWorker()
         {
-        EnterName:
+
             Extention.ShowMe(ConsoleColor.Green, $"Worker Name");
             string name = Console.ReadLine();
 
             Extention.ShowMe(ConsoleColor.Green, $"Worker Salary");
-            string inputsalary = Console.ReadLine();
-            int salary;
+            int salary = int.Parse(Console.ReadLine());
 
+            Extention.ShowMe(ConsoleColor.Green, $"Worker Count");
 
-            bool isSize = int.TryParse(inputsalary, out salary);
-            if (isSize)
+            int count = int.Parse(Console.ReadLine());
+
+            Worker worker = new Worker
             {
-                Worker worker = new Worker()
-                {
-                    Name = name,
-                    Salary=salary,
-                    
-                };
+                Name = name,
+                Salary = salary,
+                Count = count,
 
-                WorkerService.Create(worker);
-                Extention.ShowMe(ConsoleColor.Green, $"{worker.Name} created");
-            }
-            else
-            {
-                Extention.ShowMe(ConsoleColor.Red, "Enter the correct option");
-                goto EnterName;
-            }
+            };
+
+            WorkerService.Create(worker);
+            Console.WriteLine("method is break");
+
+
         }
         public void GetAllWorker()
         {

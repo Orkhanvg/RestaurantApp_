@@ -13,5 +13,6 @@ namespace Entities.Models
         public string Name { get; set; }
         public int Count { get; set; }
         public double  Salary { get; set; }
+
     }
 }

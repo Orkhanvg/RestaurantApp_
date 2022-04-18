@@ -11,7 +11,10 @@ namespace DataAccess.Repositories
 {
     public class WorkerRepository : IRepository<Worker>
     {
-
+        public WorkerRepository()
+        {
+           
+        }
         public bool Create(Worker entity)
         {
             try
@@ -19,7 +22,7 @@ namespace DataAccess.Repositories
                 DataContext.Workers.Add(entity);
                 return true;
             }
-            catch (global::System.Exception)
+            catch (Exception)
             {
 
                 throw;
@@ -37,7 +40,7 @@ namespace DataAccess.Repositories
                 DataContext.Workers.Remove(entity);
                 return true;
             }
-            catch (global::System.Exception)
+            catch (Exception)
             {
 
                 throw;
@@ -55,7 +58,7 @@ namespace DataAccess.Repositories
 
 
             }
-            catch (global::System.Exception)
+            catch (Exception)
             {
 
                 throw;
@@ -72,7 +75,7 @@ namespace DataAccess.Repositories
                     DataContext.Workers.Find(filter);
 
             }
-            catch (global::System.Exception)
+            catch (Exception)
             {
 
                 throw;
@@ -89,7 +92,7 @@ namespace DataAccess.Repositories
                 isExist = entity;
                 return true;
             }
-            catch (global::System.Exception)
+            catch (Exception)
             {
 
                 throw;

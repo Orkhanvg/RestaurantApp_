@@ -20,10 +20,11 @@ namespace Business.Service
 
         public Worker Create(Worker worker)
         {
+            Count++;
             worker.Id = Count;
 
             _workerRepository.Create(worker);
-            Count++;
+           
             return worker;
         }
         public Worker Delete(int Id)

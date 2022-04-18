@@ -11,8 +11,8 @@ namespace DataAcces
     {
 
 
-        public static List<Reservation> Reservations { get; set; }
-        public static List<Worker> Workers { get; set; }
+        public static List<Reservation> Reservations;
+        public static List<Worker> Workers;
         public DataContext()
         {
             Reservations = new List<Reservation>();
