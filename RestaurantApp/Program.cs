@@ -1,6 +1,7 @@
 ﻿using Business.Service;
 
 using Entities.Models;
+using RestaurantApp.Controller;
 using System;
 using System.Collections.Generic;
 using Utilities.Helper;
@@ -11,13 +12,67 @@ namespace RestaurantApp
     {
         static void Main(string[] args)
         {
-            
+            WorkerController workerController = new WorkerController();
             Extention.ShowMe(ConsoleColor.Green, "1-Reservation\n" +
-            "2-Workers");
+            "2-Workers\n");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
             {
                 case 1:
+                    ReservationService reservationService = new ReservationService();
+                    ReservationController reservationController = new ReservationController();
+                    Extention.ShowMe(ConsoleColor.White, "Welcome to Heaven\n");
+                    while (true)
+                    {
+                        Extention.ShowMe(ConsoleColor.DarkCyan, "1-Create  Reservation\n" +
+                            "2-Update Reservation\n" +
+                            "3-Remove Reservation\n+" +
+                            "4-Get Reservation\n");
+                        string num1 = Console.ReadLine();
+                        int input1;
+
+                        bool IsNum1 = int.TryParse(num1, out input1);
+                        if (IsNum1 && input1 < 4 && input1 > 0)
+                        {
+                            switch (input1)
+                            {
+                                case 1:
+                                    Console.Clear();
+                                    reservationController.CreateReservation();
+
+                                    //Extention.ShowMe(ConsoleColor.DarkCyan, "Please enter Date");
+                                    //DateTime date =Convert.ToDateTime(Console.ReadLine());
+                                    break;
+
+
+                                case 2:
+                                    Console.Clear();
+                                    reservationController.GetAllReservation();
+                                    break;
+
+                                case 3:
+                                    Console.Clear();
+                                    reservationController.RemoveReservation();
+                                    break;
+
+                                case 4:
+                                    List<Reservation> list = reservationService.GetAll();
+                                    foreach (var item in list)
+                                    {
+                                        Console.WriteLine(item.Name);
+                                    }
+                                    break;
+
+
+                            }
+
+
+                        }
+                    }
+
+
+                case 2:
+                default:
                     WorkerService workerService = new WorkerService();
                     Extention.ShowMe(ConsoleColor.White, "Welcome to Heaven");
                     while (true)
@@ -30,42 +85,23 @@ namespace RestaurantApp
                         int input;
 
                         bool IsNum = int.TryParse(num, out input);
-                        if (IsNum && input < 100 && input > 0)
+                        if (IsNum && input < 4 && input > 0)
                         {
                             switch (input)
                             {
                                 case 1:
-                                    Extention.ShowMe(ConsoleColor.DarkYellow, "Please enter the name");
-                                    string name = Console.ReadLine();
-                                    Extention.ShowMe(ConsoleColor.DarkYellow, "Please enter the salary");
-                                    double salary = Convert.ToDouble(Console.ReadLine());
-                                    Worker worker = new Worker
-                                    {
-                                        Name = name,
-                                        Salary = salary
-                                    };
-                                    workerService.Create(worker);
+                                    Console.Clear();
+                                    workerController.CreateWorker();
                                     break;
 
                                 case 2:
-                                    Extention.ShowMe(ConsoleColor.DarkYellow, "Please enter the ID");
-                                    int ID = Convert.ToInt16(Console.ReadLine());
-                                    Extention.ShowMe(ConsoleColor.DarkYellow, "Please enter the new name");
-                                    string name1 = Console.ReadLine();
-                                    Extention.ShowMe(ConsoleColor.DarkYellow, "Please enter the recent salary");
-                                    double salary1 = Convert.ToDouble(Console.ReadLine());
-                                    Worker worker1 = new Worker
-                                    {
-                                        Name = name1,
-                                        Salary = salary1
-                                    };
-                                    workerService.Update(ID, worker1);
+                                    Console.Clear();
+                                    workerController.GetAllWorker();
                                     break;
 
                                 case 3:
-                                    Extention.ShowMe(ConsoleColor.DarkYellow, "Please enter the ID");
-                                    int ID1 = Convert.ToInt16(Console.ReadLine());
-                                    workerService.Delete(ID1);
+                                    Console.Clear();
+                                    workerController.RemoveWorker();
                                     break;
                                 case 4:
                                     List<Worker> list = workerService.GetAll();
@@ -82,66 +118,9 @@ namespace RestaurantApp
                             }
                         }
                     }
-                case 2:
-                default:
-                    ReservationService reservationService = new ReservationService();
-                    Extention.ShowMe(ConsoleColor.White, "Welcome to Heaven");
-                    while (true)
-                    {
-                        Extention.ShowMe(ConsoleColor.DarkCyan, "1-Create  Reservation\n" +
-                            "2-Update Reservation\n" +
-                            "3-Remove Reservation\n+" +
-                            "4-Get Reservation");
-                        string num1 = Console.ReadLine();
-                        int input1;
 
-                        bool IsNum1 = int.TryParse(num1, out input1);
-                        if (IsNum1 && input1 < 100 && input1 > 0)
-                        {
-                            switch (input1)
-                            {
-                                case 1:
-                                    Extention.ShowMe(ConsoleColor.DarkYellow, "Please enter the name");
-                                    string name = Console.ReadLine();
-                                    Extention.ShowMe(ConsoleColor.DarkCyan, "Please enter the count");
-                                    int salary = Convert.ToInt16(Console.ReadLine());
-                                    break;
-
-                                case 2:
-                                    Extention.ShowMe(ConsoleColor.DarkYellow, "Please enter the ID");
-                                    int ID = Convert.ToInt16(Console.ReadLine());
-                                    Extention.ShowMe(ConsoleColor.DarkYellow, "Please enter the new name");
-                                    string name1 = Console.ReadLine();
-                                    Extention.ShowMe(ConsoleColor.DarkYellow, "Please enter the recent salary");
-                                    double salary1 = Convert.ToDouble(Console.ReadLine());
-                                    Extention.ShowMe(ConsoleColor.DarkYellow, "Please enter the total cost");
-                                    double TotalCost = Convert.ToDouble(Console.ReadLine());
-                                    break;
-
-                                case 3:
-                                    Extention.ShowMe(ConsoleColor.DarkYellow, "Please enter the ID");
-                                    int ID1 = Convert.ToInt16(Console.ReadLine());
-                                    break;
-                                case 4:
-                                    List<Reservation> list = reservationService.GetAll();
-                                    foreach (var item in list)
-                                    {
-                                        Console.WriteLine(item.Name);
-                                    }
-                                    break;
-
-
-                            }
-
-
-
-
-
-
-
-                        }
-                    }
-            }
+                
+                  }
 
         }
     }

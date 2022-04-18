@@ -10,9 +10,11 @@ namespace Entities.Models
     public class Reservation:IEntity
     {
         public int Id { get; set; }
-        public DateTime Time { get; set; }
+        public DateTime CreateTime { get; set; }
+       
         public int Count { get; set; }
         public string Name { get; set; }
         public double TotalCost { get; set; }
+        public object Salary { get; set; }
     }
 }

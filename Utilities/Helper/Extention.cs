@@ -13,7 +13,7 @@ namespace Utilities.Helper
            
             
                 Console.ForegroundColor = color;
-                Console.Write(message);
+                Console.WriteLine(message);
                 Console.ResetColor();
             
         }

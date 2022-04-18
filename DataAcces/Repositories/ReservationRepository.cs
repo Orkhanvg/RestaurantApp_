@@ -50,7 +50,7 @@ namespace DataAccess.Repositories
             {
 
 
-                return DataContext.Reservations.FindAll(filter);
+                return filter==null?DataContext.Reservations: DataContext.Reservations.FindAll(filter);
 
 
             }
@@ -67,7 +67,7 @@ namespace DataAccess.Repositories
         {
             try
             {
-                return filter == null ? DataContext.Reservations[0] :
+                return filter == null ? null :
                     DataContext.Reservations.Find(filter);
 
             }

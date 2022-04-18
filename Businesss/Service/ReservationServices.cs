@@ -54,7 +54,7 @@ namespace Business.Service
             public List<Reservation> GetAll()
             {
 
-                return _ReservationRepository.GetAll(x => x.Id == x.Id);
+            return _ReservationRepository.GetAll();
 
             }
         }
